@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    environment {
+        DOCKERHUB_CREDENTIALS = credentials('docker-creds')
+        IMAGE_NAME = "ayesha042/devops-app"
+    }
+
     stages {
 
         stage('Pull Code') {
@@ -11,14 +16,14 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t ayesha042/devops-app .'
+                bat 'docker build -t %IMAGE_NAME% .'
             }
         }
 
         stage('Push Docker Image') {
             steps {
-                bat 'docker login -u ayesha042 -p Ayesha@123'
-                bat 'docker push ayesha042/devops-app'
+                bat 'docker login -u %DOCKERHUB_CREDENTIALS_USR% -p %DOCKERHUB_CREDENTIALS_PSW%'
+                bat 'docker push %IMAGE_NAME%'
             }
         }
     }
