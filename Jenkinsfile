@@ -11,19 +11,14 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                script {
-                    docker.build("ayesha042/devops-app")
-                }
+                bat 'docker build -t ayesha042/devops-app .'
             }
         }
 
         stage('Push Docker Image') {
             steps {
-                script {
-                    docker.withRegistry('', 'dockerhub-creds') {
-                        docker.image("ayesha042/devops-app").push("latest")
-                    }
-                }
+                bat 'docker login -u ayesha042 -p Ayesha@123'
+                bat 'docker push ayesha042/devops-app'
             }
         }
     }
