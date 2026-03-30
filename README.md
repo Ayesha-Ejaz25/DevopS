@@ -5,3 +5,5 @@ first navigation bar was added with clickable home and about buttons.
 next a bug was resolved in which about buttons working was corrected.
 This is so far up to date according to issues.
 740c06b (Add documentation  section to README)
+
+Jenkins Changes check
