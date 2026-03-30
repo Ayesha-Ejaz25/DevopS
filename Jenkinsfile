@@ -5,7 +5,7 @@ pipeline {
 
         stage('Pull Code') {
             steps {
-                git 'https://github.com/Ayesha-Ejaz25/DevopS.git'
+                git branch: 'main', url: 'https://github.com/Ayesha-Ejaz25/DevopS.git'
             }
         }
 
