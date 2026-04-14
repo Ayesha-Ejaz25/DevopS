@@ -1,4 +1,5 @@
 FROM nginx:alpine
-COPY . /usr/share/nginx/html
-RUN mv /usr/share/nginx/html/WelcomeScreen.html /usr/share/nginx/html/index.html
+RUN rm -rf /usr/share/nginx/html/*
+COPY WelcomeScreen.html /usr/share/nginx/html/index.html
+COPY about.html /usr/share/nginx/html/
 EXPOSE 80
